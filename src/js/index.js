@@ -1,8 +1,10 @@
 import { fetchBreeds, fetchCatByBreed } from './cat-api';
+import Notiflix from 'notiflix';
+
 const selectBreed = document.querySelector('select.breed-select');
 const divInfo = document.querySelector('div.cat-info');
 const loader = document.querySelector('p.loader');
-const messageError = document.querySelector('p.error');
+// const messageError = document.querySelector('p.error');
 
 createSelectBreed();
 
@@ -19,7 +21,8 @@ function createSelectBreed() {
     )
     .catch(error => {
       console.log(error);
-      messageError.classList.remove('hide_show');
+      // messageError.classList.remove('hide_show');
+      errorNotify();
     })
     .finally(() => loader.classList.add('hide_show'));
 }
@@ -29,7 +32,7 @@ selectBreed.addEventListener('change', onSelected);
 function onSelected() {
   divInfo.classList.add('hide_show');
   loader.classList.remove('hide_show');
-  messageError.classList.add('hide_show');
+  // messageError.classList.add('hide_show');
 
   fetchCatByBreed(selectBreed.options[selectBreed.selectedIndex].value)
     .then(data =>
@@ -46,7 +49,18 @@ function onSelected() {
     )
     .catch(error => {
       console.log(error);
-      messageError.classList.remove('hide_show');
+      // messageError.classList.remove('hide_show');
+      errorNotify();
     })
     .finally(() => loader.classList.add('hide_show'));
+}
+
+function errorNotify() {
+  Notiflix.Notify.failure(
+    'Oops! Something went wrong! Try reloading the page!',
+    {
+      width: '600px',
+      distance: '50px',
+    }
+  );
 }
