@@ -1,0 +1,49 @@
+h2,
+p {
+  margin: 0;
+}
+
+body {
+  padding: 50px;
+}
+
+.breed-select {
+  font-size: 24px;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 50px;
+}
+
+.cat-info {
+  display: flex;
+}
+
+img {
+  border-radius: 5px;
+}
+
+.description {
+  margin-left: 20px;
+}
+
+.name {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.name_descr {
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 24px;
+}
+
+span {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.hide_show {
+  display: none;
+}
